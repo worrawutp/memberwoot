@@ -1,24 +1,3 @@
-# README
+Memberwoot เป็นแอพตัวอย่างของการทดลองใช้ Rails 6 เพื่อแสดงให้เห็นถึงการทำงานของ webpacker เบื้องต้น การเพิ่ม javascript ไลบรารี่ ว่ามีขั้นตอนอย่างไร
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+โค้ดใน Repository นี้เป็นใช้เป็นตัวอย่างประกอบสำหรับบทความเรื่อง [สร้างแอพ Rails 6, ทำความรู้จัก webpacker และทดลองนำ javascript ไลบรารี่ อย่าง Flatpickr มาใช้]()
