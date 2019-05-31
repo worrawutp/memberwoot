@@ -1,0 +1,20 @@
+<%= form_with model: @member, local: true do |form| %>
+  <div class="field-group">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field-group">
+    <%= form.label :birth_date %>
+    <%= form.date_field :birth_date %>
+  </div>
+
+  <div class="field-group">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile %>
+  </div>
+
+  <div class="field-group">
+    <%= form.submit %>
+  </div>
+<% end %>
