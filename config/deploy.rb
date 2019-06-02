@@ -15,8 +15,8 @@ set :passenger_restart_with_sudo, true
 set :passenger_restart_with_touch, false
 set :passenger_rvm_ruby_version, '2.5.5'
 
-set :bundle_flags, '--no-deployment --quiet'
-set :bundle_binstubs, nil
+#set :bundle_flags, '--no-deployment --quiet'
+#set :bundle_binstubs, nil
 
 namespace :deploy do
   after :restart, :clear_cache do
