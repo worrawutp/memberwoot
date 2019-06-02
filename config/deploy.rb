@@ -9,19 +9,20 @@ set :pty, true
 set :rvm_ruby_version, '2.5.5'
 
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/master.key', 'config/credentials.yml.enc')
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'public/packs', 'node_modules')
 
-set :passenger_restart_with_sudo, true
+set :passenger_restart_with_sudo, false
 set :passenger_restart_with_touch, false
 set :passenger_rvm_ruby_version, '2.5.5'
 
-#set :bundle_flags, '--no-deployment --quiet'
-#set :bundle_binstubs, nil
-
+before "deploy:assets:precompile", "deploy:yarn_install"
 namespace :deploy do
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-
+  desc "Run rake yarn install"
+  task :yarn_install do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
+      end
     end
   end
 end
